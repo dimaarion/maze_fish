@@ -1,20 +1,26 @@
 import * as React from 'react';
-import { Loop, Stage, World, Body, Sprite } from 'react-game-kit/native';
-import { StyleSheet, Text, View ,Image} from 'react-native';
+import { StyleSheet, Text, View, Image, StatusBar } from 'react-native';
 
+import { GameEngine } from "react-native-game-engine"
+import { MoveFinger } from "./MoveFinger";
+import Test  from "./Test"
+import Game from './Game';
 export default function App() {
   return (
-    <View>
-      <Text>wefwef</Text>
-     
-<Loop>
-  <Stage>
-    <World>
-      <Sprite src = {"https://druzhniy-center.ru/wp-content/uploads/8/f/9/8f970e878337c2170713b4f20eafb065.jpeg"}  offset = {[0,0]} scale ={100}/>
-    </World>
-  </Stage>
-</Loop>
-    </View>
-  );
-}
+  <GameEngine
+    style={styles.container}
+    systems={[MoveFinger]}
+    entities={Game()}>
+    <StatusBar hidden={true} />
+   
+  </GameEngine>
+  )
 
+
+}
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#FFF"
+  }
+});
