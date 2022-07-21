@@ -19,7 +19,6 @@ export default class Scena extends Action {
   }
 
   objects(name) {
-    
     return Array.from(this.scenaObject(name)).map((x)=>x.objects);
   }
 
@@ -47,4 +46,14 @@ export default class Scena extends Action {
   properties(name, i) {
     return this.objects(name).map((x) => x.properties)[i];
   }
+
+  layers(){
+    return scena.layers?scena.layers:[];
+  }
+
+  tileSize(){
+    return {width:scena.tilewidth,height:scena.tileheight}
+  }
+
+  
 }

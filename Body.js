@@ -47,23 +47,7 @@ export default class Body extends Scena {
     }
 
 
-    sprite(dir, n) {
-
-        try {
-            let arr = [];
-            for (let i = 0; i < n; i++) {
-                arr[i] = i;
-            }
-//let text = "./assets/player/rightRest/";
-          //  text = text.concat(i,".png");
-          let t = 10;
-          
-            return arr.map((x, i) => `./assets/player/rightRest/1.png`);
-        } catch (error) {
-            return "./assets/icon.png";
-        }
-
-    }
+   
 
     draw() {
         <Block />
