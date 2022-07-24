@@ -1,9 +1,9 @@
 import { StyleSheet, Text, View, Image, StatusBar } from 'react-native';
-import Matter, { Bodies } from "matter-js";
+import Matter from "matter-js";
 import Action from "./Action";
 import Block from "./Block";
 import Scena from './Scena';
-export default class Body extends Scena {
+export default class Body{
     body = [];
     name;
     figure = 0;
@@ -17,9 +17,11 @@ export default class Body extends Scena {
         this.name = name;
     }
     createRect(world) {
-        this.body = this.objects(this.name)[0].map((x) =>
+        let scena = new Scena();
+        let action = new Action();
+        this.body = scena.objects(this.name)[0].map((x) =>
             this.figure === 0
-                ? this.Bodies.rectangle(
+                ? Matter.Bodies.rectangle(
                     x.x + x.width / 2,
                     x.y + x.height / 2,
                     x.width,
@@ -27,9 +29,9 @@ export default class Body extends Scena {
                     { width: x.width, height: x.height }
                 )
                 : this.Bodies.circle(
-                    this.procent(this.procentInv(this.scenaWidth(), x.x + x.width / 2)),
-                    this.procent(this.procentInv(this.scenaHeight(), x.y + x.height / 2)),
-                    this.procent(this.procentInv(this.scenaWidth(), x.width / 2))
+                    action.procent(action.procentInv(scena.scenaWidth(), x.x + x.width / 2)),
+                    action.procent(action.procentInv(scena.scenaHeight(), x.y + x.height / 2)),
+                    action.procent(action.procentInv(scena.scenaWidth(), x.width / 2))
                     //this.procent(this.procentInv(this.scenaHeight(), x.height))
                 )
         );

@@ -1,6 +1,6 @@
 import Action from "./Action";
 import scena from "./assets/scena.json";
-export default class Scena extends Action {
+export default class Scena{
   setup() {
     // console.log(this.properties("platform", 1));
   }

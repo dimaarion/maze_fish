@@ -8,7 +8,7 @@ export default function Block(props) {
     }
 
     useEffect(() => {
-      console.log(props.color)
+  
     }, [])
   
    return (props.body.map((x) => <View style={
